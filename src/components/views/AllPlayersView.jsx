@@ -1,13 +1,25 @@
 import React from 'react';
 import './styles/AllPlayersView.css';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AllPlayersView = props => {
   return (
     <div className="all-players">
-      {props.allPlayers.map(player => (
+      {props.allStudents.map(player => (
         <div key={player.id}>
-          <h1>{player.firstName}</h1>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+            <Card.Title>{player.firstName} {player.lastName}</Card.Title>
+            <Card.Text>
+              Campus: 
+            </Card.Text>
+            <Button variant="primary">View Profile</Button>
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </div>
@@ -15,7 +27,7 @@ const AllPlayersView = props => {
 };
 
 AllPlayersView.propTypes = {
-  allPlayers: PropTypes.array.isRequired
+  allStudents: PropTypes.array.isRequired
 };
 
 export default AllPlayersView;
