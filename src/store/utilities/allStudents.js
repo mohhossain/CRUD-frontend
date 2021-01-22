@@ -14,7 +14,7 @@ const fetchAllStudents= students => {
 // THUNK CREATORS;
 export const fetchAllStudentsThunk = () => dispatch => {
   return axios
-    .get('/api/students')
+    .get('http://localhost:1234/api/students')
     .then(res => res.data)
     .then(students => dispatch(fetchAllStudents(students)))
     .catch(err => console.log(err))
